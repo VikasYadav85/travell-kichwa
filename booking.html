@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — Travell Kichwa</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FBF7F1">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Jost:wght@400;500;600;700&family=Mr+Dafoe&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="booking">
+
+<main id="main" class="page-top">
+  <div class="container">
+    <div class="checkout-head" id="coHead">
+      <div>
+        <nav class="crumbs dark" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><a id="coBackCrumb" href="packages.html">Trip</a><i class="ri-arrow-right-s-line"></i><span>Checkout</span></nav>
+        <h1 id="coTitle">Complete your booking</h1>
+      </div>
+      <div class="progress" id="progress" aria-label="Checkout progress">
+        <div class="progress-item is-active" data-p="1"><span class="progress-dot">1</span><span class="lbl">Trip details</span></div>
+        <span class="progress-line" data-l="1"></span>
+        <div class="progress-item" data-p="2"><span class="progress-dot">2</span><span class="lbl">Travellers</span></div>
+        <span class="progress-line" data-l="2"></span>
+        <div class="progress-item" data-p="3"><span class="progress-dot">3</span><span class="lbl">Payment</span></div>
+      </div>
+    </div>
+
+    <div class="checkout-grid" id="coGrid">
+      <div id="coMain">
+        <form id="step1" novalidate></form>
+        <form id="step2" novalidate hidden></form>
+        <form id="step3" novalidate hidden></form>
+      </div>
+      <aside class="summary" data-sticky>
+        <div class="summary-card" id="summary"></div>
+        <div class="sum-secure"><i class="ri-shield-check-line"></i>Secure checkout · Instant confirmation</div>
+      </aside>
+    </div>
+
+    <div id="confirm" hidden></div>
+  </div>
+</main>
+
+<div class="overlay" id="payOverlay" role="alertdialog" aria-live="assertive" aria-label="Processing payment">
+  <div class="overlay-box">
+    <div class="spinner"></div>
+    <h3 id="payMsg">Processing payment…</h3>
+    <p>Please don't close or refresh this window.</p>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/booking.js"></script>
+</body>
+</html>

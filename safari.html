@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeep Safari, Cabs &amp; SUV Rentals — Travell Kichwa</title>
+  <meta name="description" content="Book open-jeep wildlife safaris in Corbett, Bandhavgarh, Kaziranga and Ranthambore, desert dune safaris, and chauffeur-driven cabs, SUVs, Thar and tempo travellers.">
+  <meta name="theme-color" content="#FBF7F1">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Jost:wght@400;500;600;700&family=Mr+Dafoe&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="safari">
+
+<main id="main">
+  <section class="page-hero">
+    <img id="phImg" alt="Open jeep on a jungle safari trail">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Jeep Safari &amp; Rides</span></nav>
+      <h1>Jeep safari &amp; <span class="script">rides</span></h1>
+      <p>Open-jeep wildlife safaris, desert dune-bashing and chauffeur-driven cabs — with drivers who know every bend in the road.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="ride-switch">
+        <div class="segmented" id="rideTabs" role="tablist">
+          <button type="button" class="is-active" data-pane="safari" role="tab"><i class="ri-bear-smile-line"></i>Jeep Safari</button>
+          <button type="button" data-pane="cabs" role="tab"><i class="ri-taxi-line"></i>Cabs &amp; SUVs</button>
+        </div>
+      </div>
+
+      <!-- Safari -->
+      <div class="ride-layout" data-pane="safari">
+        <div>
+          <div class="section-head" style="margin-bottom:26px">
+            <div><span class="eyebrow">Wildlife &amp; desert</span><h2 class="section-title" style="font-size:clamp(30px,3.4vw,44px)">Pick your <span class="script">wild side</span></h2></div>
+            <p class="muted" style="max-width:320px">Private open jeep for up to 6 guests, permits and an expert naturalist included.</p>
+          </div>
+          <div class="spot-grid" id="spotGrid"></div>
+        </div>
+        <aside>
+          <div class="ride-panel" id="book" data-sticky>
+            <h3><i class="ri-roadster-line"></i>Book your safari</h3>
+            <div class="form-stack">
+              <div class="field"><label class="label" for="sfPark">Safari park</label><select class="select" id="sfPark"></select></div>
+              <div class="field"><label class="label" for="sfDate">Safari date</label><input class="input" type="date" id="sfDate"></div>
+              <div><span class="label">Time slot</span><div class="slot-grid" id="sfSlots" style="margin-top:8px"></div></div>
+              <div class="count-row" style="border:0;padding:2px 0"><div><strong>Guests</strong><small id="sfJeeps">1 jeep</small></div><span id="sfPax"></span></div>
+            </div>
+            <div class="fare" id="sfFare"></div>
+            <button class="btn btn-primary btn-lg btn-block" type="button" id="sfBook" style="margin-top:16px">Continue to book <i class="ri-arrow-right-line"></i></button>
+            <p class="hint" style="text-align:center;margin-top:10px">Free cancellation up to 48 hours before your slot</p>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Cabs -->
+      <div class="ride-layout" data-pane="cabs" hidden>
+        <div>
+          <div class="section-head" style="margin-bottom:26px">
+            <div><span class="eyebrow">Chauffeur-driven</span><h2 class="section-title" style="font-size:clamp(30px,3.4vw,44px)">Choose your <span class="script">ride</span></h2></div>
+            <p class="muted" style="max-width:320px">Outstation, round trips or a day in the city. Clean cars, verified drivers, no surge pricing.</p>
+          </div>
+          <div class="vehicle-grid" id="vehicleGrid"></div>
+        </div>
+        <aside>
+          <div class="ride-panel" id="bookCab" data-sticky>
+            <h3><i class="ri-steering-2-line"></i>Get your fare</h3>
+            <div class="form-stack">
+              <div class="trip-type" id="cbTrip">
+                <button type="button" data-trip="oneway" class="is-active">One way</button>
+                <button type="button" data-trip="round">Round trip</button>
+                <button type="button" data-trip="local">Local</button>
+              </div>
+              <div class="field"><label class="label" for="cbFrom">Pickup city</label><input class="input" id="cbFrom" list="cbCities" autocomplete="off"></div>
+              <div class="field" data-when="to"><label class="label" for="cbTo">Drop city</label><input class="input" id="cbTo" list="cbCities" autocomplete="off"></div>
+              <div class="form-grid">
+                <div class="field"><label class="label" for="cbDate">Date</label><input class="input" type="date" id="cbDate"></div>
+                <div class="field"><label class="label" for="cbTime">Time</label><input class="input" type="time" id="cbTime" value="07:00"></div>
+              </div>
+              <div class="count-row" data-when="days" style="border:0;padding:2px 0" hidden><div><strong>Days</strong><small>Min. 250 km billed per day</small></div><span id="cbDays"></span></div>
+            </div>
+            <div class="fare" id="cbFare"></div>
+            <button class="btn btn-primary btn-lg btn-block" type="button" id="cbBook" style="margin-top:16px">Continue to book <i class="ri-arrow-right-line"></i></button>
+            <p class="hint" style="text-align:center;margin-top:10px">Tolls, parking &amp; state taxes at actuals</p>
+            <datalist id="cbCities"></datalist>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-sand">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">Ride easy</span>
+        <h2 class="section-title">Every ride, <span class="script">sorted</span></h2>
+      </div>
+      <div class="values">
+        <div class="value" data-reveal><span class="f-icon"><i class="ri-user-star-line"></i></span><h3>Verified drivers</h3><p>Background-checked, hill &amp; desert trained, and rated after every trip.</p></div>
+        <div class="value" data-reveal data-delay="1"><span class="f-icon"><i class="ri-sparkling-2-line"></i></span><h3>Clean, sanitised cars</h3><p>Every vehicle is cleaned before pickup and never older than 5 years.</p></div>
+        <div class="value" data-reveal data-delay="2"><span class="f-icon"><i class="ri-map-pin-time-line"></i></span><h3>Live trip tracking</h3><p>Share your live location with family and our 24×7 control room.</p></div>
+        <div class="value" data-reveal data-delay="3"><span class="f-icon"><i class="ri-price-tag-3-line"></i></span><h3>No surge pricing</h3><p>The fare you see is the fare you pay — tolls and parking at actuals.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container" style="max-width:880px">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">Before you go</span>
+        <h2 class="section-title">Safari &amp; ride <span class="script">FAQs</span></h2>
+      </div>
+      <div id="rideFaq" data-reveal></div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/safari.js"></script>
+</body>
+</html>

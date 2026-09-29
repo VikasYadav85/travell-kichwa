@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trip details — Travell Kichwa</title>
+  <meta name="description" content="Day-by-day itinerary, inclusions, reviews and instant booking.">
+  <meta name="theme-color" content="#FBF7F1">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Jost:wght@400;500;600;700&family=Mr+Dafoe&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="packages">
+
+<main id="main" class="page-top">
+  <div class="container" id="detail">
+    <nav class="crumbs dark" aria-label="Breadcrumb" id="crumbs"></nav>
+
+    <div class="detail-head">
+      <div>
+        <div class="chips" id="dBadges"></div>
+        <h1 id="dTitle"></h1>
+        <div class="meta-row" id="dMeta"></div>
+      </div>
+      <div class="head-actions">
+        <button class="btn btn-outline btn-sm" type="button" data-share><i class="ri-share-forward-line"></i>Share</button>
+        <button class="btn btn-outline btn-sm" type="button" id="dWish"><i class="ri-heart-3-line"></i><span data-wish-label>Save</span></button>
+      </div>
+    </div>
+
+    <div class="gallery" id="gallery"></div>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <nav class="tabs-nav" id="tabsNav" aria-label="Sections">
+          <a href="#overview" class="is-active">Overview</a>
+          <a href="#itinerary">Itinerary</a>
+          <a href="#inclusions">Inclusions</a>
+          <a href="#stays">Stays &amp; prices</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#faq">FAQs</a>
+        </nav>
+
+        <section class="d-section" id="overview">
+          <h2>Overview</h2>
+          <div class="prose" id="dAbout"></div>
+          <div class="facts" id="dFacts"></div>
+          <ul class="highlights" id="dHighlights"></ul>
+        </section>
+
+        <section class="d-section" id="itinerary">
+          <h2>Day-by-day itinerary <button type="button" id="expandAll">Expand all</button></h2>
+          <div class="timeline" id="dItin"></div>
+        </section>
+
+        <section class="d-section" id="inclusions">
+          <h2>What's included</h2>
+          <div class="inc-grid">
+            <div class="inc-card yes"><h3><i class="ri-checkbox-circle-fill"></i>Included</h3><ul id="dInc"></ul></div>
+            <div class="inc-card no"><h3><i class="ri-close-circle-line"></i>Not included</h3><ul id="dExc"></ul></div>
+          </div>
+        </section>
+
+        <section class="d-section" id="stays">
+          <h2>Stays &amp; prices</h2>
+          <p class="muted" style="margin:-6px 0 18px">Per person on twin sharing. Children (5 – 11 yrs) pay 60% of the adult price.</p>
+          <div class="tiers" id="dTiers"></div>
+        </section>
+
+        <section class="d-section" id="reviews">
+          <h2>Traveller reviews</h2>
+          <div class="review-summary" id="dRevSummary"></div>
+          <div id="dReviews"></div>
+        </section>
+
+        <section class="d-section" id="faq">
+          <h2>Good to know</h2>
+          <div id="dFaq"></div>
+        </section>
+      </div>
+
+      <aside class="detail-aside">
+        <div class="book-card" id="bookCard" data-sticky>
+          <div class="book-price">
+            <small>Starting from</small>
+            <div class="row"><strong id="bcPrice"></strong><s id="bcOld"></s><span class="badge badge-moss" id="bcSave"></span></div>
+            <span class="per">per person · twin sharing</span>
+          </div>
+
+          <div class="book-fields">
+            <label class="bfield">
+              <small><i class="ri-calendar-2-line"></i>Travel date</small>
+              <input class="sf-input" type="date" id="bcDate" required>
+            </label>
+            <div class="bfield has-pop">
+              <small><i class="ri-group-line"></i>Travellers</small>
+              <button type="button" class="sf-input" data-pop-toggle id="bcPaxBtn">2 Adults</button>
+              <div class="popover" id="bcPax">
+                <div class="pop-row"><div><strong>Adults</strong><small>12 years &amp; above</small></div><span id="bcAdults"></span></div>
+                <div class="pop-row"><div><strong>Children</strong><small>5 – 11 years · 60% price</small></div><span id="bcChildren"></span></div>
+                <div class="pop-row" style="justify-content:flex-end"><button type="button" class="btn btn-soft btn-sm" data-pop-close>Done</button></div>
+              </div>
+            </div>
+            <div>
+              <small class="label" style="display:block;margin:4px 0 8px">Stay category</small>
+              <div class="tier-switch" id="bcTier"></div>
+            </div>
+          </div>
+
+          <div class="book-lines" id="bcLines"></div>
+          <div class="book-total"><span>Total <small class="muted" style="font-weight:400">(+5% GST)</small></span><strong id="bcTotal"></strong></div>
+
+          <div class="book-actions">
+            <button class="btn btn-primary btn-lg btn-block" type="button" id="bcBook">Book now <i class="ri-arrow-right-line"></i></button>
+            <button class="btn btn-outline btn-block" type="button" id="bcEnquire"><i class="ri-chat-3-line"></i>Send enquiry</button>
+          </div>
+          <p class="hint" style="text-align:center;margin-top:12px" id="bcAdvance"></p>
+
+          <ul class="trust-list">
+            <li><i class="ri-checkbox-circle-fill"></i>Free cancellation up to 15 days before travel</li>
+            <li><i class="ri-checkbox-circle-fill"></i>Pay 25% now, the rest 15 days before</li>
+            <li><i class="ri-checkbox-circle-fill"></i>Instant e-voucher on email &amp; WhatsApp</li>
+          </ul>
+          <div class="help-box">
+            <span class="avatar">TK</span>
+            <div><small>Questions? Talk to a trip expert</small><a id="bcPhone"></a></div>
+            <a class="icon-btn" id="bcWa" target="_blank" rel="noopener" aria-label="WhatsApp us"><i class="ri-whatsapp-line"></i></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <section class="section" id="similarWrap">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">You may also like</span><h2 class="section-title">Similar <span class="script">trips</span></h2></div>
+        <a class="link-arrow" href="packages.html">All packages <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="pkg-grid" id="similar"></div>
+    </div>
+  </section>
+</main>
+
+<div class="mbar" id="mbar">
+  <div><small>From</small><strong id="mbPrice"></strong><small id="mbPer">per person</small></div>
+  <button class="btn btn-primary" type="button" id="mbBook">Book now <i class="ri-arrow-right-line"></i></button>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo gallery">
+  <button class="lb-btn lb-close" type="button" aria-label="Close gallery"><i class="ri-close-line"></i></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photo"><i class="ri-arrow-left-s-line"></i></button>
+  <img id="lbImg" alt="">
+  <button class="lb-btn lb-next" type="button" aria-label="Next photo"><i class="ri-arrow-right-s-line"></i></button>
+  <span class="lb-count" id="lbCount"></span>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/package.js"></script>
+</body>
+</html>

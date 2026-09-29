@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan My Trip — Travell Kichwa</title>
+  <meta name="description" content="Answer five quick questions and a Travell Kichwa trip designer will send you a personalised itinerary within 24 hours — free.">
+  <meta name="theme-color" content="#FBF7F1">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Jost:wght@400;500;600;700&family=Mr+Dafoe&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="plan">
+
+<main id="main" class="page-top">
+  <div class="container">
+    <nav class="crumbs dark" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Plan my trip</span></nav>
+
+    <div class="planner" style="margin-top:18px">
+      <aside class="planner-aside">
+        <img id="plImg" alt="">
+        <span class="eyebrow light">Custom trip</span>
+        <h2>Tell us your dream. <span class="script">We'll plan it.</span></h2>
+        <p>Five quick questions, then a real trip designer sends you a personalised itinerary within 24 hours. Free, no obligation.</p>
+        <div class="p-steps" id="pSteps">
+          <div class="p-step is-active"><span>1</span>Destination</div>
+          <div class="p-step"><span>2</span>Dates &amp; duration</div>
+          <div class="p-step"><span>3</span>Travellers</div>
+          <div class="p-step"><span>4</span>Budget &amp; style</div>
+          <div class="p-step"><span>5</span>Your details</div>
+        </div>
+        <div class="aside-foot"><span class="avatar c2">TK</span><span>12 trip designers online · average reply in <b>2 hours</b></span></div>
+      </aside>
+
+      <form class="planner-main" id="planner" novalidate>
+        <div class="p-progress" aria-hidden="true"><span id="pBar"></span></div>
+
+        <div class="p-pane is-active" data-step="1">
+          <small>Step 1 of 5</small>
+          <h3>Where would you like to go?</h3>
+          <p>Pick one or more — or tell us somewhere else.</p>
+          <div class="pick-grid" id="pickGrid"></div>
+          <div class="field" style="margin-top:18px"><label class="label" for="plOther">Somewhere else in mind?</label><input class="input" id="plOther" placeholder="e.g. Meghalaya, Vietnam, Georgia… or 'surprise me'"></div>
+        </div>
+
+        <div class="p-pane" data-step="2">
+          <small>Step 2 of 5</small>
+          <h3>When are you planning to travel?</h3>
+          <p>Choose a month — exact dates can come later.</p>
+          <div class="month-grid" id="monthGrid"></div>
+          <div class="p-sub">Trip length <span id="durVal">6 nights</span></div>
+          <input type="range" class="range" id="plDur" min="2" max="15" value="6" aria-label="Trip length in nights">
+          <div class="range-val"><span>2 nights</span><span>15 nights</span></div>
+          <label class="check" style="margin-top:18px"><input type="checkbox" id="plFlex" checked>My dates are flexible by a few days</label>
+        </div>
+
+        <div class="p-pane" data-step="3">
+          <small>Step 3 of 5</small>
+          <h3>Who's coming along?</h3>
+          <p>We'll tailor stays, pace and activities to your group.</p>
+          <div class="choice-grid" id="groupGrid"></div>
+          <div style="margin-top:22px">
+            <div class="count-row"><div><strong>Adults</strong><small>12 years &amp; above</small></div><span id="plAdults"></span></div>
+            <div class="count-row"><div><strong>Children</strong><small>Under 12</small></div><span id="plKids"></span></div>
+          </div>
+        </div>
+
+        <div class="p-pane" data-step="4">
+          <small>Step 4 of 5</small>
+          <h3>Budget &amp; travel style</h3>
+          <p>Per person, excluding flights. We'll make every rupee count.</p>
+          <div class="p-sub" style="margin-top:0">Budget per person <span id="budVal">₹30,000</span></div>
+          <input type="range" class="range" id="plBudget" min="5000" max="300000" step="5000" value="30000" aria-label="Budget per person">
+          <div class="range-val"><span>₹5k</span><span>₹3L+</span></div>
+          <div class="p-sub">Where do you like to stay?</div>
+          <div class="chips" id="stayChips"></div>
+          <div class="p-sub">What do you love? <small class="muted" style="font-family:var(--ff-body);font-weight:500">pick any</small></div>
+          <div class="chips" id="interestChips"></div>
+        </div>
+
+        <div class="p-pane" data-step="5">
+          <small>Step 5 of 5</small>
+          <h3>Where should we send your plan?</h3>
+          <p>No spam, ever. Just one thoughtfully designed itinerary.</p>
+          <div class="form-grid">
+            <div class="field span-2"><label class="label" for="plName">Your name <span class="req">*</span></label><input class="input" id="plName" name="name" autocomplete="name" required><span class="field-error">Please tell us your name</span></div>
+            <div class="field"><label class="label" for="plPhone">Mobile (WhatsApp) <span class="req">*</span></label><input class="input" id="plPhone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98xxx xxxxx" required><span class="field-error">Enter a 10-digit mobile number</span></div>
+            <div class="field"><label class="label" for="plEmail">Email <span class="req">*</span></label><input class="input" id="plEmail" name="email" type="email" autocomplete="email" required><span class="field-error">Enter a valid email</span></div>
+            <div class="field span-2"><label class="label" for="plNotes">Anything else? <span class="muted" style="font-weight:500">(optional)</span></label><textarea class="textarea" id="plNotes" name="notes" rows="3" placeholder="Anniversary trip, vegetarian food, must-see places, flights from Delhi…"></textarea></div>
+          </div>
+          <div class="p-sub">Best way to reach you</div>
+          <div class="chips" id="contactChips"></div>
+        </div>
+
+        <div class="p-pane" data-step="done"></div>
+
+        <div class="p-nav" id="pNav">
+          <button type="button" class="btn btn-outline" id="pBack"><i class="ri-arrow-left-line"></i>Back</button>
+          <span class="step-label" id="pLabel">Step 1 of 5</span>
+          <button type="submit" class="btn btn-primary btn-lg" id="pNext">Next <i class="ri-arrow-right-line"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">What you get</span>
+        <h2 class="section-title">A trip designed <span class="script">around you</span></h2>
+      </div>
+      <div class="values">
+        <div class="value" data-reveal><span class="f-icon"><i class="ri-map-2-line"></i></span><h3>Day-by-day plan</h3><p>Routes, stays and experiences picked for your pace and interests.</p></div>
+        <div class="value" data-reveal data-delay="1"><span class="f-icon"><i class="ri-edit-line"></i></span><h3>Unlimited changes</h3><p>Tweak anything until it feels perfect — no charges for revisions.</p></div>
+        <div class="value" data-reveal data-delay="2"><span class="f-icon"><i class="ri-lock-line"></i></span><h3>48-hour price lock</h3><p>Your quote is held for 48 hours while you decide.</p></div>
+        <div class="value" data-reveal data-delay="3"><span class="f-icon"><i class="ri-customer-service-2-line"></i></span><h3>One expert, start to end</h3><p>The designer who plans your trip stays with you until you're home.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/plan.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Trips — Travell Kichwa</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FBF7F1">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Jost:wght@400;500;600;700&family=Mr+Dafoe&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="account">
+
+<main id="main" class="page-top">
+  <div class="container" id="account">
+    <nav class="crumbs dark" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>My account</span></nav>
+    <div id="accRoot" style="margin-top:22px"></div>
+  </div>
+</main>
+
+<!-- voucher -->
+<div class="modal" id="voucherModal" role="dialog" aria-modal="true" aria-label="Booking voucher">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card wide">
+    <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close"><i class="ri-close-line"></i></button>
+    <div id="voucherBody"></div>
+    <div class="btn-row" style="justify-content:center">
+      <button class="btn btn-primary" type="button" onclick="window.print()"><i class="ri-printer-line"></i>Print / save PDF</button>
+      <button class="btn btn-outline" type="button" data-close-modal>Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- cancel -->
+<div class="modal" id="cancelModal" role="dialog" aria-modal="true" aria-labelledby="cancelTitle">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card confirm-modal">
+    <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close"><i class="ri-close-line"></i></button>
+    <div class="ci"><i class="ri-close-circle-line"></i></div>
+    <h3 id="cancelTitle">Cancel this booking?</h3>
+    <p class="sub" id="cancelText"></p>
+    <div class="sum-block" id="cancelCalc" style="text-align:left;border:1px solid var(--line);border-radius:16px;background:#fff"></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" type="button" data-close-modal>Keep booking</button>
+      <button class="btn btn-dark" type="button" id="cancelYes">Yes, cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- pay balance -->
+<div class="modal" id="payModal" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card">
+    <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close"><i class="ri-close-line"></i></button>
+    <span class="eyebrow">Balance payment</span>
+    <h3 id="payTitle" style="margin-top:10px">Pay the balance</h3>
+    <p class="sub" id="payText"></p>
+    <div class="opt-grid cols-2" id="payMethods" style="margin-bottom:18px"></div>
+    <button class="btn btn-primary btn-lg btn-block" type="button" id="payYes"></button>
+    <p class="modal-foot"><i class="ri-lock-line"></i> Demo mode — no real money is charged.</p>
+  </div>
+</div>
+
+<!-- review -->
+<div class="modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card">
+    <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close"><i class="ri-close-line"></i></button>
+    <span class="eyebrow">Your review</span>
+    <h3 id="reviewTitle" style="margin-top:10px">How was your trip?</h3>
+    <p class="sub" id="reviewSub"></p>
+    <div class="stars" id="reviewStars" style="font-size:34px;gap:6px;cursor:pointer" role="radiogroup" aria-label="Rating"></div>
+    <div class="field" style="margin-top:18px"><label class="label" for="reviewText">Tell future travellers about it</label><textarea class="textarea" id="reviewText" rows="4" placeholder="What did you love? Any tips?"></textarea></div>
+    <button class="btn btn-primary btn-lg btn-block" type="button" id="reviewSend" style="margin-top:16px">Submit review</button>
+  </div>
+</div>
+
+<div class="overlay" id="payOverlay" role="alertdialog" aria-live="assertive" aria-label="Processing payment">
+  <div class="overlay-box"><div class="spinner"></div><h3 id="payMsg">Processing payment…</h3><p>Please don't close this window.</p></div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/account.js"></script>
+</body>
+</html>

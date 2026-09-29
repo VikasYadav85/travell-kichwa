@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Destinations — Travell Kichwa</title>
+  <meta name="description" content="Explore Ladakh, Kashmir, Kerala, Rajasthan, Goa, Andaman, Dubai, Bali, Maldives and more — with the best time to visit and trips from every budget.">
+  <meta name="theme-color" content="#FBF7F1">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Jost:wght@400;500;600;700&family=Mr+Dafoe&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="destinations">
+
+<main id="main">
+  <section class="page-hero">
+    <img id="phImg" alt="Pangong Tso lake in Ladakh">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Destinations</span></nav>
+      <h1>Where the road <span class="script">takes you</span></h1>
+      <p>Mountains, backwaters, deserts and islands — every destination handpicked, every route driven by our team.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="toolbar" style="justify-content:space-between">
+        <div class="segmented" id="dRegion" role="tablist">
+          <button type="button" class="is-active" data-v="">All</button>
+          <button type="button" data-v="india"><i class="ri-map-pin-2-line"></i>India</button>
+          <button type="button" data-v="intl"><i class="ri-global-line"></i>International</button>
+        </div>
+        <div class="input-wrap" style="max-width:360px"><i class="ri-search-line"></i><input class="input" type="search" id="dQ" placeholder="Search destinations…" aria-label="Search destinations"></div>
+      </div>
+      <p class="results-count" id="dCount" style="margin:6px 0 22px"></p>
+      <div class="dcard-grid" id="dGrid"></div>
+    </div>
+  </section>
+
+  <section class="section-sm section-tight">
+    <div class="container">
+      <div class="cta-card" data-reveal>
+        <div>
+          <span class="eyebrow">Can't decide?</span>
+          <h2>Let us <span class="script">surprise</span> you</h2>
+          <p>Tell us your dates, budget and the kind of trip you love. A trip designer will suggest the perfect destination — and plan all of it.</p>
+          <div class="btn-row"><a class="btn btn-primary btn-lg" href="plan.html"><i class="ri-route-line"></i>Plan my trip</a><a class="btn btn-outline btn-lg" href="packages.html">Browse all packages</a></div>
+        </div>
+        <div class="cta-art" aria-hidden="true"><img src="assets/img/jeep.png" alt=""></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travell Kichwa — Search. Plan. Travel.</title>
+  <meta name="description" content="Handcrafted road trips, jeep safaris and holidays across India and beyond. Search, plan and book your next trip with Travell Kichwa.">
+  <meta name="theme-color" content="#FBF7F1">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Jost:wght@400;500;600;700&family=Mr+Dafoe&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="home">
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label="Welcome">
+    <div class="hero-media" id="heroMedia"></div>
+    <div class="hero-shade"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-kicker">
+          <span class="faces"><span class="avatar c1">AS</span><span class="avatar c2">PM</span><span class="avatar c3">KM</span></span>
+          <i class="ri-star-fill"></i> 4.9 · Loved by 12,000+ travellers
+        </span>
+        <h1 class="hero-title">Search. Plan.<span class="script">Travel.</span></h1>
+        <p class="hero-sub">Handcrafted road trips, jeep safaris and holidays across India &amp; beyond — planned by people who've driven every road, booked in minutes.</p>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-meta">
+          <span class="hero-place"><i class="ri-map-pin-2-fill"></i><span id="heroPlace"></span></span>
+          <div class="hero-dots" id="heroDots"></div>
+        </div>
+
+        <div class="search-panel">
+          <div class="search-tabs" role="tablist" aria-label="What are you looking for?">
+            <button class="search-tab is-active" type="button" role="tab" data-tab="tours" aria-selected="true"><i class="ri-suitcase-3-line"></i>Holidays</button>
+            <button class="search-tab" type="button" role="tab" data-tab="safari" aria-selected="false"><i class="ri-roadster-line"></i>Jeep Safari</button>
+            <button class="search-tab" type="button" role="tab" data-tab="cabs" aria-selected="false"><i class="ri-taxi-line"></i>Cabs &amp; SUVs</button>
+            <button class="search-tab" type="button" role="tab" data-tab="custom" aria-selected="false"><i class="ri-route-line"></i>Custom Trip</button>
+          </div>
+
+          <!-- Holidays -->
+          <form class="search-form is-active" data-form="tours" autocomplete="off">
+            <div class="sf-field grow has-pop" id="destField">
+              <label class="sf-label" for="sfDest"><i class="ri-map-pin-2-line"></i>Where to?</label>
+              <input class="sf-input" id="sfDest" name="q" placeholder="Ladakh, Kashmir, Bali…" role="combobox" aria-expanded="false" aria-controls="destSuggest" aria-autocomplete="list">
+              <div class="suggest" id="destSuggest" role="listbox"></div>
+            </div>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-calendar-2-line"></i>Travel date</span>
+              <input class="sf-input" type="date" name="date" data-min-today>
+            </label>
+            <div class="sf-field has-pop">
+              <span class="sf-label"><i class="ri-group-line"></i>Travellers</span>
+              <button type="button" class="sf-input" data-pop-toggle data-guests-label>2 Adults</button>
+              <div class="popover" data-guests>
+                <div class="pop-row"><div><strong>Adults</strong><small>12 years &amp; above</small></div>
+                  <div class="stepper" data-name="adults" data-min="1" data-max="20"><button type="button" data-step="-1" aria-label="Fewer adults"><i class="ri-subtract-line"></i></button><output>2</output><button type="button" data-step="1" aria-label="More adults"><i class="ri-add-line"></i></button></div>
+                </div>
+                <div class="pop-row"><div><strong>Children</strong><small>5 – 11 years</small></div>
+                  <div class="stepper" data-name="children" data-min="0" data-max="10"><button type="button" data-step="-1" aria-label="Fewer children" disabled><i class="ri-subtract-line"></i></button><output>0</output><button type="button" data-step="1" aria-label="More children"><i class="ri-add-line"></i></button></div>
+                </div>
+                <div class="pop-row" style="justify-content:flex-end"><button type="button" class="btn btn-soft btn-sm" data-pop-close>Done</button></div>
+              </div>
+            </div>
+            <label class="sf-field hide-md">
+              <span class="sf-label"><i class="ri-time-line"></i>Duration</span>
+              <select class="sf-input" name="dur">
+                <option value="">Any length</option>
+                <option value="short">1 – 3 days</option>
+                <option value="mid">4 – 6 days</option>
+                <option value="long">7+ days</option>
+              </select>
+            </label>
+            <button class="btn btn-primary sf-submit" type="submit"><i class="ri-search-line"></i>Search</button>
+          </form>
+
+          <!-- Jeep safari -->
+          <form class="search-form" data-form="safari" autocomplete="off">
+            <label class="sf-field grow">
+              <span class="sf-label"><i class="ri-bear-smile-line"></i>Safari park</span>
+              <select class="sf-input" name="spot" id="sfSpot"></select>
+            </label>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-calendar-2-line"></i>Safari date</span>
+              <input class="sf-input" type="date" name="date" data-min-today>
+            </label>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-sun-line"></i>Slot</span>
+              <select class="sf-input" name="slot"><option value="morning">Morning</option><option value="evening">Evening</option></select>
+            </label>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-group-line"></i>Guests</span>
+              <select class="sf-input" name="pax">
+                <option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option><option value="8">8 guests</option><option value="12">12 guests</option>
+              </select>
+            </label>
+            <button class="btn btn-primary sf-submit" type="submit"><i class="ri-roadster-line"></i>Check slots</button>
+          </form>
+
+          <!-- Cabs -->
+          <form class="search-form" data-form="cabs" autocomplete="off">
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-map-pin-line"></i>From</span>
+              <input class="sf-input" name="from" list="cityList" placeholder="Pickup city" value="Delhi">
+            </label>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-map-pin-2-line"></i>To</span>
+              <input class="sf-input" name="to" list="cityList" placeholder="Drop city" value="Manali">
+            </label>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-calendar-2-line"></i>Pickup date</span>
+              <input class="sf-input" type="date" name="date" data-min-today>
+            </label>
+            <label class="sf-field hide-md">
+              <span class="sf-label"><i class="ri-car-line"></i>Vehicle</span>
+              <select class="sf-input" name="vehicle" id="sfVehicle"></select>
+            </label>
+            <button class="btn btn-primary sf-submit" type="submit"><i class="ri-price-tag-3-line"></i>Get fare</button>
+            <datalist id="cityList"></datalist>
+          </form>
+
+          <!-- Custom -->
+          <form class="search-form" data-form="custom" autocomplete="off">
+            <label class="sf-field grow">
+              <span class="sf-label"><i class="ri-compass-3-line"></i>Dream destination</span>
+              <input class="sf-input" name="dest" placeholder="Anywhere — or 'surprise me'">
+            </label>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-calendar-event-line"></i>When</span>
+              <select class="sf-input" name="month" id="sfMonth"></select>
+            </label>
+            <label class="sf-field">
+              <span class="sf-label"><i class="ri-wallet-3-line"></i>Budget / person</span>
+              <select class="sf-input" name="budget">
+                <option value="15000">Under ₹15,000</option>
+                <option value="30000" selected>₹15k – ₹30k</option>
+                <option value="60000">₹30k – ₹60k</option>
+                <option value="100000">₹60k – ₹1 lakh</option>
+                <option value="200000">₹1 lakh +</option>
+              </select>
+            </label>
+            <button class="btn btn-primary sf-submit" type="submit"><i class="ri-route-line"></i>Start planning</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="container stats" aria-label="Travell Kichwa in numbers">
+    <div class="stat" data-reveal><span class="stat-icon"><i class="ri-user-smile-fill"></i></span><div><strong data-count="12000" data-suffix="+">12,000+</strong><span>Happy travellers</span></div></div>
+    <div class="stat" data-reveal data-delay="1"><span class="stat-icon"><i class="ri-route-fill"></i></span><div><strong data-count="180" data-suffix="+">180+</strong><span>Curated itineraries</span></div></div>
+    <div class="stat" data-reveal data-delay="2"><span class="stat-icon"><i class="ri-star-smile-fill"></i></span><div><strong>4.9/5</strong><span>Average trip rating</span></div></div>
+    <div class="stat" data-reveal data-delay="3"><span class="stat-icon"><i class="ri-customer-service-2-fill"></i></span><div><strong>24×7</strong><span>On-trip support</span></div></div>
+  </section>
+
+  <!-- ============ DESTINATIONS ============ -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <span class="eyebrow">Destinations</span>
+          <h2 class="section-title">Where to <span class="script">next?</span></h2>
+          <p class="section-lead">From the high passes of Ladakh to the lagoons of the Maldives — pick a place, we'll handle every detail.</p>
+        </div>
+        <div class="segmented" role="tablist" aria-label="Region" id="destTabs">
+          <button type="button" class="is-active" data-region="india" role="tab" aria-selected="true"><i class="ri-map-pin-2-line"></i>India</button>
+          <button type="button" data-region="intl" role="tab" aria-selected="false"><i class="ri-global-line"></i>International</button>
+        </div>
+      </div>
+      <div class="dest-grid" id="destGrid"></div>
+      <div class="text-center" style="margin-top:36px">
+        <a class="btn btn-outline" href="destinations.html">Explore all destinations <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PACKAGES ============ -->
+  <section class="section bg-sand" id="trending">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <span class="eyebrow">Trending trips</span>
+          <h2 class="section-title">Handpicked <span class="script">for you</span></h2>
+        </div>
+        <a class="link-arrow" href="packages.html" id="allPkgLink">View all packages <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="chips chips-scroll" id="pkgChips" style="margin-bottom:30px"></div>
+      <div class="pkg-grid" id="pkgGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">How it works</span>
+        <h2 class="section-title">Three steps to your <span class="script">next story</span></h2>
+        <p class="section-lead">Our name is our process. No endless tabs, no hidden charges — just a trip that feels made for you.</p>
+      </div>
+      <div class="steps" data-reveal>
+        <div class="road" aria-hidden="true"><span class="road-jeep"><img src="assets/img/jeep.png" alt=""></span></div>
+        <div class="step">
+          <div class="step-icon"><i class="ri-search-eye-line"></i><span class="step-num">01</span></div>
+          <h3>Search</h3>
+          <p>Browse handcrafted trips or simply tell us where you dream of going.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="ri-map-2-line"></i><span class="step-num">02</span></div>
+          <h3>Plan</h3>
+          <p>A trip designer tailors dates, stays and pace — you approve every detail.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="ri-roadster-line"></i><span class="step-num">03</span></div>
+          <h3>Travel</h3>
+          <p>Pay just 25% to book, then hit the road with 24×7 support a call away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JEEP SAFARI BAND ============ -->
+  <section class="section band" id="safari">
+    <div class="container band-grid">
+      <div class="band-media" data-reveal>
+        <img id="bandImg" alt="Open jeep on a forest safari trail" loading="lazy">
+        <div class="float-card">
+          <span class="fc-icon"><i class="ri-roadster-line"></i></span>
+          <div><strong>Morning safari · Jim Corbett</strong><small>Tomorrow, 6:00 AM · 2 seats left</small></div>
+          <span class="pulse" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div data-reveal>
+        <span class="eyebrow light">Jeep safari &amp; road trips</span>
+        <h2 class="section-title">Built for the road less <span class="script">travelled</span></h2>
+        <p class="section-lead">There's a jeep in our logo for a reason. From tiger trails in Corbett to dune-bashing in Jaisalmer, we put you in the right 4x4 with the right driver.</p>
+        <div class="service-list">
+          <div class="service"><i class="ri-bear-smile-line"></i><div><strong>Wildlife jeep safaris</strong><span>Corbett, Bandhavgarh, Kaziranga &amp; more</span></div></div>
+          <div class="service"><i class="ri-sun-foggy-line"></i><div><strong>Desert dune safaris</strong><span>Sam dunes, Jaisalmer &amp; Dubai</span></div></div>
+          <div class="service"><i class="ri-steering-2-line"></i><div><strong>Thar &amp; SUV rentals</strong><span>With expert hill &amp; desert drivers</span></div></div>
+          <div class="service"><i class="ri-bus-2-line"></i><div><strong>Tempo travellers</strong><span>For families &amp; group road trips</span></div></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-light btn-lg" href="safari.html">Book a jeep safari <i class="ri-arrow-right-line"></i></a>
+          <a class="btn btn-glass btn-lg" href="safari.html?tab=cabs">Rent a cab</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY US ============ -->
+  <section class="section" id="why">
+    <div class="container why-grid">
+      <div class="collage" data-reveal>
+        <div class="c1"><img id="whyImg1" alt="Pangong Tso lake, Ladakh" loading="lazy"></div>
+        <div class="c2"><img id="whyImg2" alt="Houseboat on the Kerala backwaters" loading="lazy"></div>
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 148 148"><defs><path id="stampCircle" d="M74,74 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text><textPath href="#stampCircle" textLength="312" lengthAdjust="spacing">Search · Plan · Travel · Explore ·</textPath></text></svg>
+          <img src="assets/img/jeep.png" alt="">
+        </div>
+      </div>
+      <div data-reveal>
+        <span class="eyebrow">Why Travell Kichwa</span>
+        <h2 class="section-title">Travel with people who've <span class="script">been there</span></h2>
+        <p class="section-lead">We're a small team of road-trippers and trip designers. Every route we sell, we've driven; every stay, we've slept in.</p>
+        <div class="feature-list">
+          <div class="feature"><span class="f-icon"><i class="ri-shield-check-line"></i></span><h4>Verified stays &amp; drivers</h4><p>Every hotel, camp and driver is personally checked by our team.</p></div>
+          <div class="feature"><span class="f-icon"><i class="ri-wallet-3-line"></i></span><h4>Pay just 25% to book</h4><p>Lock today's price and pay the balance 15 days before you travel.</p></div>
+          <div class="feature"><span class="f-icon"><i class="ri-customer-service-2-line"></i></span><h4>24×7 on-trip support</h4><p>A real human on WhatsApp — before, during and after your trip.</p></div>
+          <div class="feature"><span class="f-icon"><i class="ri-price-tag-3-line"></i></span><h4>Best price promise</h4><p>Transparent pricing with no hidden charges. Found it cheaper? We'll match it.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFER ============ -->
+  <section class="section-sm section-tight" id="offer">
+    <div class="container">
+      <div class="offer" data-reveal>
+        <img id="offerImg" alt="" loading="lazy">
+        <div>
+          <span class="eyebrow light">Festive getaway sale</span>
+          <h2>Flat 10% off <span class="script">every</span> trip</h2>
+          <p>Book any holiday before the timer runs out and save up to ₹5,000. Valid on all domestic &amp; international packages.</p>
+          <div class="coupon">
+            <span>Use code</span><code>KICHWA10</code>
+            <button class="btn btn-light btn-sm" type="button" data-copy="KICHWA10" data-copy-msg="Code KICHWA10 copied — apply it at checkout"><i class="ri-file-copy-line"></i>Copy</button>
+          </div>
+        </div>
+        <div class="countdown" id="countdown" aria-label="Offer ends in">
+          <div class="cd"><strong data-cd="d">00</strong><span>Days</span></div>
+          <div class="cd"><strong data-cd="h">00</strong><span>Hours</span></div>
+          <div class="cd"><strong data-cd="m">00</strong><span>Mins</span></div>
+          <div class="cd"><strong data-cd="s">00</strong><span>Secs</span></div>
+        </div>
+        <p class="offer-note" id="offerNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section bg-sand" id="reviews">
+    <div class="container t-wrap">
+      <div class="t-score" data-reveal>
+        <div>
+          <span class="eyebrow">Traveller stories</span>
+          <h2 class="section-title">Loved on the <span class="script">road</span></h2>
+        </div>
+        <div>
+          <div class="big">4.9</div>
+          <div class="stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+          <p>Average from 2,300+ verified reviews</p>
+        </div>
+        <div class="t-nav">
+          <button class="icon-btn bordered" type="button" id="tPrev" aria-label="Previous stories"><i class="ri-arrow-left-line"></i></button>
+          <button class="icon-btn bordered" type="button" id="tNext" aria-label="Next stories"><i class="ri-arrow-right-line"></i></button>
+        </div>
+      </div>
+      <div class="t-track" id="tTrack" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ============ INSTAGRAM ============ -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <span class="eyebrow" id="instaHandle">@travellkichwa</span>
+          <h2 class="section-title">Follow the <span class="script">journey</span></h2>
+        </div>
+        <a class="btn btn-outline" id="instaLink" target="_blank" rel="noopener"><i class="ri-instagram-line"></i>Follow on Instagram</a>
+      </div>
+      <div class="insta" id="instaGrid" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section-sm section-tight">
+    <div class="container">
+      <div class="cta-card" data-reveal>
+        <div>
+          <span class="eyebrow">Custom trips</span>
+          <h2>Can't find your <span class="script">perfect</span> trip?</h2>
+          <p>Tell us what you love — mountains, beaches, wildlife or all three. A trip designer will send you a personalised plan within 24 hours. Free, no obligation.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary btn-lg" href="plan.html"><i class="ri-route-line"></i>Plan my trip</a>
+            <a class="btn btn-outline btn-lg" id="ctaWa" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i>WhatsApp us</a>
+          </div>
+        </div>
+        <div class="cta-art" aria-hidden="true"><img src="assets/img/jeep.png" alt=""></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>
